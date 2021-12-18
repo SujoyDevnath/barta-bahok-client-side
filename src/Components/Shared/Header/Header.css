@@ -1,0 +1,7 @@
+.navbar {
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.50);
+    font-family: 'Viga', sans-serif;
+}
+.navbar-brand {
+    color: #8A61CE;
+}

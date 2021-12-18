@@ -1,0 +1,29 @@
+/*  sx={{ background: 'white', display: 'flex', flexDirection: 'column' }} */
+.users-profile {
+    background: white;
+    display: flex;
+    flex-direction: column;
+}
+/*  sx={{ width: '60%', height: '40vh', mx: 'auto',mb: '120px', position: 'relative' }} */
+.profile-image-container {
+    width: 60%;
+    height: 40vh;
+    margin-bottom: 120px;
+    position: relative;
+}
+.profile-active-btn {
+    background: white;
+    color: #8A61CE !important;
+    border-bottom: 2px solid #8A61CE;
+    text-decoration: none !important;
+}
+.profile-tab {
+    text-decoration: none !important;
+    color: grey;
+}
+.profile-tab button {
+    padding: 10px 25px;
+    font-size: 20px;
+    font-family: 'viga' !important;
+    text-decoration: none;
+}
