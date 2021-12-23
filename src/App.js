@@ -10,12 +10,29 @@ import Posts from './Components/Pages/Posts/Posts/Posts';
 import Chats from './Components/Pages/Chats/Chats/Chats';
 import Login from './Components/Pages/Login/Login/Login';
 import SignUp from './Components/Pages/Login/SignUp/SignUp';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import axios from 'axios';
+import { setPosts } from './redux/actions';
+import { useEffect } from 'react';
 
 function App() {
 
   const user = useSelector((state) => state?.firebaseReducer?.firebase);
+  const posts = useSelector((state) => state.postsReduser.posts)
+  
+  const dispatch = useDispatch();
+  const fetchProducts = async () => {
+    const response = await axios
+      .get("http://localhost:5000/posts")
+      .catch((err) => {
+        console.error("Err: ", err);
+      });
+    dispatch(setPosts(response.data));
+  };
+  useEffect(() => {
+    fetchProducts();
+  }, [posts]);
   
   return (
     <>

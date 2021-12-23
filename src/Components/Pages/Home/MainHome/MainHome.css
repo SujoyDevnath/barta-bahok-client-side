@@ -1,11 +1,4 @@
-.post-text-field {
-    background: rgba(196, 196, 196, 0.43);
-    border: 3px solid #8A61CE;
-    margin: 0 20px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
+
 /* sx={{ width: '54%', height: '90vh', overflowY: 'scroll'}} */
 .main-home {
     width: 54% !important;

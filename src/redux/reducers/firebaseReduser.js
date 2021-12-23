@@ -4,7 +4,7 @@ const intialState = {
 };
 
 export const firebaseReducer = (state = intialState, { type, payload }) => {
-    console.log('payload', payload);
+    // console.log('payload', payload);
     switch (type) {
         case 'FIREBASE':
             return { ...state, firebase: payload };

@@ -6,10 +6,11 @@ import './Login.css';
 import { Link } from 'react-router-dom';
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import { auth } from '../../../../Hooks/useFirebase';
-import { useHistory, useLocation } from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { firebase } from '../../../../redux/actions';
-
+import initializeFirebase from '../../../../Firebase/Firebase.init';
+initializeFirebase()
 const Login = () => {
 
     const googleProvider = new GoogleAuthProvider();
@@ -19,6 +20,7 @@ const Login = () => {
     const { email, password } = loginData;
     const [isLoading, setIsLoading] = useState(true);
     const [authError, setAuthError] = useState('');
+    console.log('authError', authError);
     const history = useHistory();
     const location = useLocation();
     // console.log(email, password)
@@ -29,15 +31,18 @@ const Login = () => {
         newloginData[field] = value;
         setLoginData(newloginData);
     }
+    console.log(email, password)
 
     // login user
     const loginUser = (e) => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
+                console.log(userCredential)
+                dispatch(firebase(userCredential.user));
                 const destination = location?.state?.from || '/';
                 history.replace(destination);
-                setAuthError('');
+                setAuthError('login succcessful');
             })
             .catch((error) => {
                 setAuthError(error.message);

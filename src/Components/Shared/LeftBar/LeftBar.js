@@ -13,7 +13,7 @@ const LeftBar = () => {
     const dispatch = useDispatch();
 
     const user = useSelector((state) => state?.firebaseReducer?.firebase);
-    const { displayName, photoURL, email } = user;
+    const { displayName, photoURL } = user;
 
     const logout = () => {
         signOut(auth)
@@ -32,7 +32,7 @@ const LeftBar = () => {
                     sx={{ width: 150, height: 150, mx: 'auto', fontSize: '50px' }}
                 />
                 <Typography variant="h5" className='text-color font'>{displayName}</Typography>
-                <Typography variant="h6" className='text-muted font'>25 followers</Typography>
+                <Typography variant="h6" className='text-muted font'>0 followers</Typography>
                 <Link to="/profile" className='text-decoration-none'>
                 <Button
                     variant="contained"
@@ -49,13 +49,6 @@ const LeftBar = () => {
                     className="font mt-2"
                 >Logout</Button>
             </Box>
-            <Box>
-                <NavLink activeClassName="active" to='profile' className="dashboard-tabs"><Button color="inherit">Dashboard</Button></NavLink>
-                <NavLink activeClassName="active" to='profile' className="dashboard-tabs"><Button color="inherit">My Orders</Button></NavLink>
-                <NavLink activeClassName="active" to='profile' className="dashboard-tabs"><Button color="inherit">Review</Button></NavLink>
-                <NavLink activeClassName="active" to='profile' className="dashboard-tabs"><Button color="inherit">Payment</Button></NavLink>
-            </Box>
-
         </Box>
     );
 };

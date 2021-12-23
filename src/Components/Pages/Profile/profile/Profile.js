@@ -43,7 +43,7 @@ const Profile = () => {
                             sx={{ width: 150, height: 150, mx: 'auto', fontSize: '50px', border: '3px solid white' }}
                         />
                         <Typography variant="h5" className='text-color font'>{displayName}</Typography>
-                        <Typography variant="h6" className='text-muted font'>25 followers</Typography>
+                        <Typography variant="h6" className='text-muted font'>0 followers</Typography>
                     </Box>
                 </Box>
                 <hr />
